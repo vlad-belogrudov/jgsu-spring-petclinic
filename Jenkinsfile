@@ -16,14 +16,14 @@ pipeline {
                 sh './mvnw clean package'
             }
 
-            post {
-                always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                }
-                success {
-                    archiveArtifacts 'target/*.jar'
-                }
-            }
+        }
+    }
+    post {
+        always {
+            junit '**/target/surefire-reports/TEST-*.xml'
+        }
+        success {
+            archiveArtifacts 'target/*.jar'
         }
     }
 }
